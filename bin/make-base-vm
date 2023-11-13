@@ -164,7 +164,7 @@ if [ $DISTRO = "ubuntu" ]; then
   KERNEL_PKG=linux-image-generic,
 fi
 
-GRUB_PKG=grub
+GRUB_PKG=grub2-common
 if [ $DISTRO = "ubuntu" ]; then
   GRUB_PKG=grub-pc
 fi
