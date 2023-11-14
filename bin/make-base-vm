@@ -208,7 +208,12 @@ WORKDIR /home/$DISTRO
 CMD ["sleep", "infinity"]
 EOF
 
-  docker build --pull -f $OUT.Dockerfile -t $OUT .
+  if [ $ARCH = "amd64" ]
+  then
+    docker buildx build --platform linux/amd64 --pull -f $OUT.Dockerfile -t $OUT .
+  else
+    docker build --pull -f $OUT.Dockerfile -t $OUT .
+  fi
 
   exit 0
 fi
